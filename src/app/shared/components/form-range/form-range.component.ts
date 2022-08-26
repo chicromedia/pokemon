@@ -1,5 +1,6 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { FormControlValueAccessor } from "../../models/form-control-value-accesor";
+import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component( {
     selector: 'form-range',
@@ -10,13 +11,13 @@ import { FormControlValueAccessor } from "../../models/form-control-value-acceso
     },
     providers: [
         {
-            provide: FormRangeComponent,
+            provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef( () => FormRangeComponent ),
             multi: true
         }
     ]
 } )
-export class FormRangeComponent extends FormControlValueAccessor implements OnInit
+export class FormRangeComponent extends FormControlValueAccessor<number> implements OnInit
 {
 
     @Input()

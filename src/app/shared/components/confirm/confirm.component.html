@@ -1,0 +1,13 @@
+<h2 class="confirm__message">{{message}}</h2>
+
+<ng-template modalFooter>
+    <button class="btn__primary"
+            (click)="confirm$.next()">
+        <icon name="save"></icon>
+        OK
+    </button>
+    <button class="btn__primary" (click)="close()">
+        <icon name="cancel"></icon>
+        Cancelar
+    </button>
+</ng-template>

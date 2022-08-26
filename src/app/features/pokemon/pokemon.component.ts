@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from "./services/pokemon.service";
 import { IPokemon } from "./interfaces/pokemon";
 import { Observable } from "rxjs";
+import { PokemonFormComponent } from "./components/pokemon-form/pokemon-form.component";
+import { ModalService } from "../../shared/services/modal.service";
 
 @Component( {
     selector: 'pokemon',
@@ -16,7 +18,7 @@ export class PokemonComponent implements OnInit
 
     collection$: Observable<IPokemon[]> = this.pokemon.collection$;
 
-    constructor( private pokemon: PokemonService )
+    constructor( private pokemon: PokemonService, private modal: ModalService )
     {
     }
 
@@ -27,11 +29,23 @@ export class PokemonComponent implements OnInit
 
     edit( pokemon: IPokemon )
     {
-
+        this.modal.open( {
+            title: `Editar pokemon #${ pokemon.id }`,
+            component: PokemonFormComponent,
+            context: { data: pokemon },
+            size: "lg"
+        } )
     }
 
-    remove( id: number )
+    remove( pokemon: IPokemon )
     {
-
+        this.modal.confirm(
+            {
+                message: `¿Seguro quiere eliminar a ${ pokemon.name }?`,
+                waitForRequest$: this.pokemon.remove( pokemon.id )
+            }
+        ).subscribe(
+            () => this.modal.closeAll()
+        )
     }
 }

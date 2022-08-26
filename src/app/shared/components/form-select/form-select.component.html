@@ -1,0 +1,16 @@
+<ng-container *ngIf="label">
+    <label class="form__label" [attr.for]="id">{{label}}:</label>
+</ng-container>
+
+<select class="form__control"
+        [attr.id]="id"
+        [(ngModel)]="value"
+        [attr.placeholder]="placeholder"
+        (blur)="onTouched()"
+        [disabled]="disabled"
+        #select>
+    <ng-container *ngIf="invalid">
+        <option disabled [attr.label]="value" [attr.value]="value"></option>
+    </ng-container>
+    <ng-content select="option"></ng-content>
+</select>

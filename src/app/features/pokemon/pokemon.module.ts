@@ -5,6 +5,7 @@ import { PokemonComponent } from "./pokemon.component";
 import { PokemonFormComponent } from "./components/pokemon-form/pokemon-form.component";
 import { PokemonHeaderComponent } from "./components/pokemon-header/pokemon-header.component";
 import { RouterModule, Routes } from "@angular/router";
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 const POKEMON_ROUTES: Routes = [

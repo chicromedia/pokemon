@@ -6,4 +6,5 @@
        [attr.id]="id"
        [(ngModel)]="value"
        [attr.placeholder]="placeholder"
+       (blur)="onTouched()"
        [disabled]="disabled"/>

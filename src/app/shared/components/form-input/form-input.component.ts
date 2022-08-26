@@ -1,5 +1,6 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { FormControlValueAccessor } from "../../models/form-control-value-accesor";
+import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component( {
     selector: 'form-input',
@@ -10,7 +11,7 @@ import { FormControlValueAccessor } from "../../models/form-control-value-acceso
     },
     providers: [
         {
-            provide: FormInputComponent,
+            provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef( () => FormInputComponent ),
             multi: true
         }

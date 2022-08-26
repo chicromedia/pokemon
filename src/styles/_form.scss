@@ -9,20 +9,25 @@
     background-color: #fff;
     background-clip: padding-box;
     border: 2px solid #ced4da;
-    appearance: none;
     border-radius: 0.2rem;
     line-height: 1.5;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    outline: none;
   }
 
   &__input {
-    display: flex;
+    display: grid;
+    grid-template-columns: [label] 1fr [input] 2fr;
+    grid-gap: 1rem;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     font-size: 1rem;
     font-weight: 400;
     color: #212529;
+
+    &.ng-touched.ng-invalid > .form__control {
+      border-color: var(--error-color);
+    }
   }
 
   &__range {
@@ -30,8 +35,9 @@
   }
 
   &__row {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
     position: relative;
 
     .form__input {
@@ -43,5 +49,12 @@
     &:not(:first-child) {
       margin-left: 1rem;
     }
+  }
+
+  &__error {
+    display: block;
+    color: var(--error-color);
+    text-align: center;
+    width: 100%;
   }
 }

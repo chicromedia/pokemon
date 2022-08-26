@@ -12,7 +12,8 @@ import { DOCUMENT } from "@angular/common";
 import { IModalSetup } from "../interfaces/modal";
 import { ModalRef } from "../models/modal-ref";
 import { ModalComponent } from "../components/modal/modal.component";
-import { take } from "rxjs";
+import { mergeMap, Observable, of, take } from "rxjs";
+import { ConfirmComponent } from "../components/confirm/confirm.component";
 
 @Injectable( {
     providedIn: 'root'
@@ -55,12 +56,29 @@ export class ModalService
             }
         } );
 
+        if ( setup.context )
+        {
+            Object.assign( contentRef.instance, setup.context )
+        }
+
         Object.assign( windowRef.instance, {
             title: setup.title,
             close: modalRef.close.bind( modalRef ),
             size: setup.size
         } )
         return modalRef;
+    }
+
+    confirm( setup: { message: string, waitForRequest$?: Observable<any> } ): Observable<void>
+    {
+        const confirm = this.open( {
+            component: ConfirmComponent,
+            context: { message: setup.message }
+        } );
+        return confirm.contentRef.instance.confirm$.pipe(
+            mergeMap( () => setup.waitForRequest$ ? setup.waitForRequest$ : of( true ) ),
+            take( 1 )
+        );
     }
 
     closeAll()

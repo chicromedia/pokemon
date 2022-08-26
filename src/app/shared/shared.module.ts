@@ -8,6 +8,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { FormRangeComponent } from './components/form-range/form-range.component';
 import { ModalFooterDirective } from './directives/modal.directive';
 import { IconComponent } from './components/icon/icon.component';
+import { FormSelectComponent } from './components/form-select/form-select.component';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 
 @NgModule( {
@@ -17,13 +19,16 @@ import { IconComponent } from './components/icon/icon.component';
         ReactiveFormsModule
     ],
     exports: [
+        FormsModule,
+        ReactiveFormsModule,
         DataGridComponent,
         FormInputComponent,
         DataGridColumnDirective,
         DataGridDetailDirective,
         FormRangeComponent,
         ModalFooterDirective,
-        IconComponent
+        IconComponent,
+        FormSelectComponent
     ],
     declarations: [
         DataGridComponent,
@@ -33,7 +38,9 @@ import { IconComponent } from './components/icon/icon.component';
         FormRangeComponent,
         ModalComponent,
         ModalFooterDirective,
-        IconComponent
+        IconComponent,
+        FormSelectComponent,
+        ConfirmComponent
     ]
 } )
 export class SharedModule

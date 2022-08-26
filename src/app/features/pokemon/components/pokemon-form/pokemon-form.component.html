@@ -1,21 +1,35 @@
-<div class="form__row">
-    <div class="form__col">
-        <form-input label="Nombre"></form-input>
-        <form-input label="Image"></form-input>
+<form [formGroup]="formGroup">
+    <div class="form__row">
+        <div class="form__col">
+            <form-input formControlName="name" label="Nombre"></form-input>
+            <form-input formControlName="image" label="Image"></form-input>
+            <form-select formControlName="type" label="Tipo">
+                <option label="Fire" value="fire"></option>
+                <option label="Grass" value="grass"></option>
+                <option label="Poison" value="poison"></option>
+                <option label="Water" value="water"></option>
+            </form-select>
+        </div>
+        <div class="form__col">
+            <form-range formControlName="attack" label="Ataque"></form-range>
+            <form-range formControlName="defense" label="Defensa"></form-range>
+            <form-range formControlName="hp" label="HP"></form-range>
+        </div>
     </div>
-    <div class="form__col">
-        <form-range label="Ataque"></form-range>
-        <form-range label="Defensa"></form-range>
-    </div>
-</div>
 
-<ng-template modalFooter>
-    <button class="btn__primary" type="submit">
-        <icon name="save"></icon>
-        Guardar
-    </button>
-    <button class="btn__primary" type="submit" (click)="close()">
-        <icon name="cancel"></icon>
-        Cancelar
-    </button>
-</ng-template>
+    <span [ngClass]="{'form__error': !!errorMessage}">{{errorMessage}}</span>
+
+    <ng-template modalFooter>
+        <button class="btn__primary"
+                (click)="submit()"
+                [disabled]="formGroup!.invalid">
+            <icon name="save"></icon>
+            Guardar
+        </button>
+        <button class="btn__primary" (click)="close()">
+            <icon name="cancel"></icon>
+            Cancelar
+        </button>
+    </ng-template>
+</form>
+
