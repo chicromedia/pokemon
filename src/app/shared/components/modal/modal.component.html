@@ -1,0 +1,17 @@
+<div role="document" class="modal__dialog" [ngClass]="{'modal__lg': size == 'lg', 'modal__xl': size == 'xl'}">
+    <div class="modal__content">
+        <div class="modal__header">
+            <h4 class="modal__title">{{title}}</h4>
+        </div>
+
+        <div class="modal__body">
+            <ng-template #content></ng-template>
+        </div>
+
+        <div class="modal__footer">
+            <ng-template #footer></ng-template>
+        </div>
+    </div>
+</div>
+
+<div class="modal__backdrop"></div>

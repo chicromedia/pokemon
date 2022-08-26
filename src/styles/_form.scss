@@ -1,0 +1,47 @@
+.form {
+  &__label {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  &__control {
+    padding: 0.375rem 0.75rem;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #ced4da;
+    appearance: none;
+    border-radius: 0.2rem;
+    line-height: 1.5;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #212529;
+  }
+
+  &__range {
+    padding: 0.375rem 0.75rem;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+
+    .form__input {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__col {
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+}

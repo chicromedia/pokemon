@@ -1,0 +1,21 @@
+<div class="form__row">
+    <div class="form__col">
+        <form-input label="Nombre"></form-input>
+        <form-input label="Image"></form-input>
+    </div>
+    <div class="form__col">
+        <form-range label="Ataque"></form-range>
+        <form-range label="Defensa"></form-range>
+    </div>
+</div>
+
+<ng-template modalFooter>
+    <button class="btn__primary" type="submit">
+        <icon name="save"></icon>
+        Guardar
+    </button>
+    <button class="btn__primary" type="submit" (click)="close()">
+        <icon name="cancel"></icon>
+        Cancelar
+    </button>
+</ng-template>

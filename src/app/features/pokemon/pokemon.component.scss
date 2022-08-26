@@ -1,0 +1,11 @@
+.pokemon {
+  &__cover {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &__tools {
+    display: grid;
+    grid-template-columns: repeat(2, .5fr);
+  }
+}

@@ -1,0 +1,25 @@
+<table class="data-grid">
+    <thead class="data-grid__header">
+    <tr>
+        <th *ngFor="let column of columns" [ngClass]="column.class" [attr.colSpan]="column.colSpan">
+            {{column.title}}
+        </th>
+    </tr>
+    </thead>
+
+    <tbody class="data-grid__body">
+    <ng-container *ngIf="collection">
+        <tr *ngFor="let item of collection; index as i">
+            <td *ngFor="let column of columns" [ngClass]="column.class" [attr.colspan]="column.colSpan">
+                <ng-container *ngIf="column?.itemDetails; else showField">
+                    <ng-container *ngTemplateOutlet="column.itemDetails; context: context(item, i)"></ng-container>
+                </ng-container>
+
+                <ng-template #showField>
+                    {{!!item[column.field] ? item[column.field] : 'No disponible'}}
+                </ng-template>
+            </td>
+        </tr>
+    </ng-container>
+    </tbody>
+</table>

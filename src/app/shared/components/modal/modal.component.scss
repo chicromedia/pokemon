@@ -1,0 +1,76 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1050;
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #ced4da;
+    pointer-events: auto;
+    border-radius: .2rem;
+    outline: 0;
+  }
+
+  &__dialog {
+    position: relative;
+    width: auto;
+    margin: 1.75rem auto;
+    pointer-events: none;
+    max-width: var(--modal-width, 500px);
+    z-index: 1;
+
+    &.modal__lg {
+      @media (min-width: 992px) {
+        --modal-width: 800px;
+      }
+    }
+  }
+
+  &__backdrop {
+    background-color: rgb(0 0 0 / 47%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &__title {
+    margin: unset;
+    font-weight: 400;
+  }
+
+  &__open {
+    overflow: hidden;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+  }
+
+  &__footer {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem 1rem;
+  }
+
+}

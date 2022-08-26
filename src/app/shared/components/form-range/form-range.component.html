@@ -1,0 +1,15 @@
+<ng-container *ngIf="label">
+    <label class="form__label" [attr.for]="id">{{label}}:</label>
+</ng-container>
+
+<div class="form__range">
+    {{min}}
+    <input type="range"
+           [attr.id]="id"
+           [(ngModel)]="value"
+           [attr.min]="min"
+           [attr.max]="max"
+           [disabled]="disabled"/>
+    {{max}}
+</div>
+

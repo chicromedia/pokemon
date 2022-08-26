@@ -1,0 +1,14 @@
+.data-grid {
+  width: 100%;
+  color: #555;
+  vertical-align: top;
+  border-collapse: collapse;
+  background-color: #fff;
+
+  th, td {
+    padding: 0 .5rem;
+    border-color: #dee2e6;
+    border-style: solid;
+    height: 2.5rem;
+  }
+}

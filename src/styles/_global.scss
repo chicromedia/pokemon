@@ -1,0 +1,16 @@
+:root {
+  --primary-color: #665aef;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  color: #555;
+}
+
+.text {
+  &__center {
+    text-align: center;
+  }
+}
+

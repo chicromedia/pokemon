@@ -1,0 +1,9 @@
+<ng-container *ngIf="label">
+    <label class="form__label" [attr.for]="id">{{label}}:</label>
+</ng-container>
+
+<input class="form__control"
+       [attr.id]="id"
+       [(ngModel)]="value"
+       [attr.placeholder]="placeholder"
+       [disabled]="disabled"/>

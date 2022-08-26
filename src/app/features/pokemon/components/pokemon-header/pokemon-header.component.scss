@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.pokemon-header {
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 400;
+    margin-bottom: 0.7rem;
+  }
+}

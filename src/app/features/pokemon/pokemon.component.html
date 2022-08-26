@@ -1,0 +1,24 @@
+<pokemon-header></pokemon-header>
+
+<data-grid [collection]="collection$|async">
+    <data-grid-column title="Nombre" field="name"></data-grid-column>
+    <data-grid-column title="Imagen" class="text__center">
+        <ng-template dataGridDetail let-pokemon>
+            <img class="pokemon__cover" [attr.src]="pokemon?.image" [attr.alt]="pokemon?.name">
+        </ng-template>
+    </data-grid-column>
+    <data-grid-column title="Ataque" field="attack"></data-grid-column>
+    <data-grid-column title="Defensa" field="defense"></data-grid-column>
+    <data-grid-column title="Acciones">
+        <ng-template dataGridDetail let-pokemon>
+            <div class="pokemon__tools">
+                <button (click)="edit(pokemon)" class="btn__link" type="button">
+                    <icon name="edit"></icon>
+                </button>
+                <button (click)="remove(pokemon.id)" class="btn__link" type="button">
+                    <icon name="remove"></icon>
+                </button>
+            </div>
+        </ng-template>
+    </data-grid-column>
+</data-grid>
