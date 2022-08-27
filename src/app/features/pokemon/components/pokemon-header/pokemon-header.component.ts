@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { ModalService } from "../../../../shared/services/modal.service";
 import { PokemonFormComponent } from "../pokemon-form/pokemon-form.component";
-import { PokemonService } from "../../services/pokemon.service";
 import { Subject } from "rxjs";
 
 @Component( {
@@ -18,7 +17,7 @@ export class PokemonHeaderComponent implements OnInit, OnDestroy
     private _search: string = '';
     private readonly destroy$: Subject<void> = new Subject<void>();
 
-    constructor( private service: PokemonService, private modal: ModalService )
+    constructor( private modal: ModalService )
     {
     }
 

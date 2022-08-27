@@ -48,7 +48,7 @@ export class PokemonComponent implements OnInit
         this.modal.confirm(
             {
                 message: `¿Seguro quiere eliminar a ${ pokemon.name }?`,
-                waitForRequest$: this.pokemon.remove( pokemon.id )
+                waitForRequest$: this.pokemon.remove( pokemon.id! )
             }
         ).subscribe(
             () => this.modal.closeAll()

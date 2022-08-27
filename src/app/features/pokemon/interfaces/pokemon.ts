@@ -1,6 +1,6 @@
 export interface IPokemon
 {
-    id?: number;
+    id?: number | null;
     name: string;
     image: string;
     attack: number;

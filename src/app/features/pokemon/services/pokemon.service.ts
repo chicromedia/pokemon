@@ -37,7 +37,7 @@ export class PokemonService
         return request$.pipe(
             map( ( response: IPokemon ) =>
             {
-                if ( !response.id )
+                if ( !response || !response.id )
                 {
                     throw new HttpErrorResponse( { error: response, status: 409 } )
                 }
@@ -54,7 +54,7 @@ export class PokemonService
             } ) )
     }
 
-    remove( id?: number )
+    remove( id: number )
     {
         return this.http.delete<IPokemon>( `${ this.API_BASE }${ id }` ).pipe( tap( () =>
         {
