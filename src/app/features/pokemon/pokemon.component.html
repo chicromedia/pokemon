@@ -1,6 +1,6 @@
-<pokemon-header></pokemon-header>
+<pokemon-header (change)="search = $event"></pokemon-header>
 
-<data-grid [collection]="collection$|async">
+<data-grid [collection]="collection$|async" [filterField]="'name'" [filterValue]="search">
     <data-grid-column title="Nombre" field="name"></data-grid-column>
     <data-grid-column title="Imagen" class="text__center">
         <ng-template dataGridDetail let-pokemon>

@@ -17,6 +17,7 @@ export class PokemonComponent implements OnInit
 {
 
     collection$: Observable<IPokemon[]> = this.pokemon.collection$;
+    search!: string;
 
     constructor( private pokemon: PokemonService, private modal: ModalService )
     {
@@ -26,6 +27,11 @@ export class PokemonComponent implements OnInit
     {
         this.pokemon.loadList().subscribe();
     }
+
+    filterable: any = ( item: IPokemon ) =>
+    {
+        return !!this.search ? item.name == this.search : true;
+    };
 
     edit( pokemon: IPokemon )
     {

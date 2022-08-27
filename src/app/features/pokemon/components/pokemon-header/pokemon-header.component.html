@@ -1,7 +1,7 @@
 <h3 class="pokemon-header__title">Listado de pokemon</h3>
 
 <header class="pokemon-header__wrap">
-    <form-input placeholder="Buscar"></form-input>
+    <form-input placeholder="Buscar" [(ngModel)]="search"></form-input>
     <button type="button" class="btn__primary" (click)="newPokemon()">
         <icon name="add"></icon>
         Nuevo

@@ -11,6 +11,10 @@ export class DataGridComponent implements OnInit
 
     @Input()
     collection!: any[] | null;
+    @Input()
+    filterField!: string;
+    @Input()
+    filterValue!: string;
 
     @ContentChildren( DataGridColumnDirective ) columns!: QueryList<DataGridColumnDirective>;
 
@@ -26,4 +30,5 @@ export class DataGridComponent implements OnInit
     {
         return { $implicit: dataItem, ...dataItem, index };
     }
+
 }

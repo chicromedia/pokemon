@@ -10,6 +10,7 @@ import { ModalFooterDirective } from './directives/modal.directive';
 import { IconComponent } from './components/icon/icon.component';
 import { FormSelectComponent } from './components/form-select/form-select.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { FilterByPipe } from './pipes/filter-by.pipe';
 
 
 @NgModule( {
@@ -28,7 +29,8 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
         FormRangeComponent,
         ModalFooterDirective,
         IconComponent,
-        FormSelectComponent
+        FormSelectComponent,
+        FilterByPipe
     ],
     declarations: [
         DataGridComponent,
@@ -40,7 +42,8 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
         ModalFooterDirective,
         IconComponent,
         FormSelectComponent,
-        ConfirmComponent
+        ConfirmComponent,
+        FilterByPipe
     ]
 } )
 export class SharedModule
